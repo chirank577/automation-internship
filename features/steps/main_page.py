@@ -13,7 +13,7 @@ def log_in_to_main_page(context, user_id, password):
 
 
 
-@then('Verify the three options of visualization are available')
+@then('Verify the three options of visualization are available and clickable')
 def verify_options_are_available(context):
     context.app.off_plan.verify_visualisations_three_options()
 

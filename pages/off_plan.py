@@ -23,7 +23,7 @@ class OffPlan(Page):
             option.click()
             sleep(4)
 
-            selected_option=option.find_element(*self.visualisations_text).text
+            selected_option=self.driver.find_element(*self.visualisations_text).text
             print(selected_option)
 
             actual.append(selected_option)

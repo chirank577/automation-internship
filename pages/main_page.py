@@ -1,3 +1,4 @@
+from time import sleep
 
 from selenium.webdriver.common.by import By
 
@@ -7,4 +8,5 @@ class MainPage(Page):
 
     def open_main(self):
         self.open('https://soft.reelly.io')
+        sleep(10)
 
