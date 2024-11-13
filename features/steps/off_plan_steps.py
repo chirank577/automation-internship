@@ -8,3 +8,4 @@ from time import sleep
 def click_on_first_product(context):
     context.app.off_plan.click_on_product()
 
+

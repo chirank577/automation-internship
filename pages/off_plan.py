@@ -1,3 +1,4 @@
+import time
 from time import sleep
 
 from selenium.webdriver.common.by import By
@@ -13,6 +14,7 @@ class OffPlan(Page):
 
     def click_on_product(self):
         self.wait_to_be_clickable_click(*self.product)
+        time.sleep(4)
 
     def verify_visualisations_three_options(self):
         expected=["Architecture", "Interior", "Lobby"]

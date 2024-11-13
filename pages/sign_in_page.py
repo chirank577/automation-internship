@@ -1,8 +1,8 @@
 from selenium.webdriver.common.by import By
 from time import sleep
-
+import pandas as pd
 from pages.base_page import Page
-from sample_script import driver
+
 
 
 class SignInPage(Page):
@@ -14,4 +14,9 @@ class SignInPage(Page):
         self.input_text(user_id, *self.email_id)
         self.input_text(password, *self.Password)
         self.click(*self.continue_btn)
+
+
+    def read_login_credentials(self):
+        df = pd.read_excel('chiru.xlsx')
+        print(df)
 
