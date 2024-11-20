@@ -21,7 +21,7 @@ class Page:
         return self.find_element(*locator).text
 
     def get_texts(self, *locator):
-        return self.find_elements(*locator)
+        return self.find_elements(*locator).text
 
     def get_current_window(self):
         return self.driver.current_window_handle

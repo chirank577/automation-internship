@@ -1,4 +1,4 @@
-from selenium import webdriver
+
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.support.wait import WebDriverWait
@@ -6,6 +6,7 @@ from webdriver_manager.firefox import GeckoDriverManager
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support import expected_conditions as EC
 from time import sleep
+from selenium import webdriver
 
 from app.application import Application
 from support.logger import logger
@@ -15,17 +16,21 @@ from support.logger import logger
 # behave -f allure_behave.formatter:AllureFormatter -o test_results/ features/tests/target_search.feature
 
 def browser_init(context, scenario_name):
+    """
+    :param context: Behave context
     # """
-    # # # :param context: Behave context
-    # # # """
-    # driver_path = ChromeDriverManager().install()
-    # service = Service(driver_path)
-    # context.driver = webdriver.Chrome(service=service)
+    mobile_emulation = {"deviceName": "Nexus 5"}
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.add_experimental_option("mobileEmulation", mobile_emulation)
+
+    driver_path = ChromeDriverManager().install()
+    service = Service(driver_path)
+    context.driver = webdriver.Chrome(service=service, options=chrome_options)
 
      #firefox
-    driver_path = GeckoDriverManager().install()
-    service = Service(driver_path)
-    context.driver = webdriver.Firefox(service=service)
+    # driver_path = GeckoDriverManager().install()
+    # service = Service(driver_path)
+    # context.driver = webdriver.Firefox(service=service)
 
     ### SAFARI ###
     # context.driver = webdriver.Safari()

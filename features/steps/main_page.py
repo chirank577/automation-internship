@@ -14,6 +14,13 @@ def log_in_to_main_page(context, user_id, password):
     context.app.sign_in_page.Login_page(user_id=user_id, password=password)
 
 
+@then ('log into the page using data from xls file')
+def log_in_to_main_page(context):
+    context.app.sign_in_page.read_login_credentials()
+
+
+
+
 
 @then('Verify the three options of visualization are available and clickable')
 def verify_options_are_available(context):

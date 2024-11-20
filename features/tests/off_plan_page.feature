@@ -8,3 +8,10 @@ Feature: off plan page feature tests
      And click on off plan at the left side menu
      And click on the first product
      Then Verify the three options of visualization are available and clickable
+
+
+  Scenario: verify data driven case
+     Given open main reelly page
+     Then log into the page using data from xls file
+
+
